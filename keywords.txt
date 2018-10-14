@@ -1,0 +1,9 @@
+Slider	KEYWORD1
+Button	KEYWORD1
+State	KEYWORD1
+Transition	KEYWORD1
+getTransition	KEYWORD2
+getState	KEYWORD2
+setAction	KEYWORD2
+doAction	KEYWORD2
+getProgress	KEYWORD2
