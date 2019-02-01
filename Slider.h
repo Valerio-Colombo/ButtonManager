@@ -13,9 +13,9 @@ class Slider {
 		float _delta;
 
 		bool _pressed = false;
-		float _progress = 0;
+		float _progress = 0; // Actual value of the slider
 		int _holdCounter = 0;
-		int _holdThreshold = 15;
+		int _holdThreshold = 150; // Number of milliseconds that must elapse to accept a change in the progress of the slider
 
 	public:
 		/*
@@ -45,6 +45,11 @@ class Slider {
 		Return curret value of slider if pressed or return last progress value if not pressed
 		*/
 		int getProgress();
+
+		/*
+		Set _holdThresholdValue
+		*/
+		int setHoldThreshold(int value);
 };
 
 #endif
