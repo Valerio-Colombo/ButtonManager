@@ -7,3 +7,4 @@ getState	KEYWORD2
 setAction	KEYWORD2
 doAction	KEYWORD2
 getProgress	KEYWORD2
+updateStatus	KEYWORD2

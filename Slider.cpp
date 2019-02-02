@@ -34,8 +34,10 @@ void Slider::updateStatus() {
 	int iterations = (_size/8);
 
 	for(int i=0; i<=iterations; i++) {
-		//Pulse the latch pin:
-  		//set it to 1 to collect parallel data
+		/*
+		* Pulse the latch pin:
+  		* set it to 1 to collect parallel data
+  		*/
   		digitalWrite(*(_latchPin+i), 1);
   		//set it to 1 to collect parallel data, wait
   		digitalWrite(*(_clockPin+i), 1);
@@ -43,9 +45,11 @@ void Slider::updateStatus() {
   		//set it to 0 to transmit data serially
   		digitalWrite(*(_latchPin+i), 0);
 
-  		//while the shift register is in serial mode
-  		//collect each shift register into a byte
-  		//the register attached to the chip comes in first
+  		/*
+  		* While the shift register is in serial mode
+  		* collect each shift register into a byte
+  		* the register attached to the chip comes in first
+  		*/
   		*_input = shiftIn(*_dataPin, *_clockPin);
 
   		//Debuging print statements
@@ -62,10 +66,11 @@ uint8_t Slider::shiftIn(int myDataPin, int myClockPin) {
 
   	pinMode(myClockPin, OUTPUT);
   	pinMode(myDataPin, INPUT);
-  	/*We will be holding the clock pin high 8 times (0,..,7) at the
+  	/*
+  	* We will be holding the clock pin high 8 times (0,..,7) at the
   	* end of each time through the for loop
-
-  	* at the begining of each loop when we set the clock low, it will
+	*
+  	* At the begining of each loop when we set the clock low, it will
   	* be doing the necessary low to high drop to cause the shift
   	* register's DataPin to change state based on the value
   	* of the next bit in its serial information flow.
