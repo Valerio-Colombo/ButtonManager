@@ -11,7 +11,7 @@ Slider::Slider(int size, int digitalPin[]) {
 	}
 }
 
-Slider::Slider(int size, uint8_t* input, uint8_t* latchPin, uint8_t* dataPin, uint8_t* clockPin) {
+Slider::Slider(int size, uint8_t* input, uint8_t latchPin, uint8_t dataPin, uint8_t clockPin) {
 	_latchPin = latchPin;
 	_dataPin = dataPin;
 	_clockPin = clockPin;
@@ -38,19 +38,19 @@ void Slider::updateStatus() {
 		* Pulse the latch pin:
   		* set it to 1 to collect parallel data
   		*/
-  		digitalWrite(*(_latchPin+i), 1);
+  		digitalWrite(_latchPin, 1);
   		//set it to 1 to collect parallel data, wait
-  		digitalWrite(*(_clockPin+i), 1);
+  		digitalWrite(_clockPin, 1);
   		delayMicroseconds(50);
   		//set it to 0 to transmit data serially
-  		digitalWrite(*(_latchPin+i), 0);
+  		digitalWrite(_latchPin, 0);
 
   		/*
   		* While the shift register is in serial mode
   		* collect each shift register into a byte
   		* the register attached to the chip comes in first
   		*/
-  		*_input = shiftIn(*_dataPin, *_clockPin);
+  		*_input = shiftIn(_dataPin, _clockPin);
 
   		//Debuging print statements
   		//Serial.print(*input, BIN);
