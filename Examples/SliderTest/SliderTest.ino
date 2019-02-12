@@ -12,8 +12,8 @@ uint8_t latchPin = D7;                        // PSC
 uint8_t dataPin = D5;                         // Q6
 uint8_t clockPin = D6;                        // CLK
 uint8_t inputSlider = 0;                      // Byte where is stored 8-Stage Static Shift Register output
-Button buttonArray[BUTTON_SIZE] = {D0};       // Don't use D4!
-Slider slider(SLIDER_SIZE, &inputSlider, &latchPin, &dataPin, &clockPin);
+Button buttonArray[BUTTON_SIZE] = {D0};       // Don't use D3, D4 and D8! They are reserved pin for boot
+Slider slider(SLIDER_SIZE, &inputSlider, latchPin, dataPin, clockPin);
 int progress = 0;
 int currentLuminosity = 0;
 
