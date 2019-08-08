@@ -22,7 +22,7 @@ class Slider {
 		// Measurements variables
 		bool _pressed = false;
 		float _progress = 0; 		// Actual value of the slider
-		int _holdCounter = 0; 		// Current time
+		unsigned long _holdCounter = 0; 		// Current time
 		int _holdThreshold = 150; 	// Number of milliseconds that must elapse to accept a change in the progress of the slider
 
 		uint8_t shiftIn(int myDataPin, int myClockPin);
