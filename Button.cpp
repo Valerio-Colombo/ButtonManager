@@ -44,5 +44,4 @@ bool Button::_isPressed() {
 		return false;
 	}
 	return digitalRead(_pin);
-	
 }

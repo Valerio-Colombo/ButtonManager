@@ -9,10 +9,11 @@
 class Slider {
 	private:
 		// Initialization variables
-		int _size; 					// Size of the slider
-		uint8_t* _input; 			// Byte where slider readings are stored
-		Button **_buttons; 			// Slider buttons
-		float _delta; 				// Value quantum
+		int _size; 								// Size of the slider
+		int _numByte;							// Number of byte needed for the slider data
+		uint8_t* _input; 						// Bytes where slider readings are stored
+		Button **_buttons; 						// Slider buttons
+		float _delta; 							// Value quantum
 
 		// Pin variables
 		uint8_t _latchPin;
@@ -21,9 +22,9 @@ class Slider {
 
 		// Measurements variables
 		bool _pressed = false;
-		float _progress = 0; 		// Actual value of the slider
+		float _progress = 0; 					// Actual value of the slider
 		unsigned long _holdCounter = 0; 		// Current time
-		int _holdThreshold = 150; 	// Number of milliseconds that must elapse to accept a change in the progress of the slider
+		int _holdThreshold = 150; 				// Number of milliseconds that must elapse to accept a change in the progress of the slider
 
 		uint8_t shiftIn(int myDataPin, int myClockPin);
 
@@ -31,12 +32,11 @@ class Slider {
 		/*
  		* Slider has two constructors:
  		* one accepting the array containing digital pins attached to the touch sensors,
-		* the other one accepts: a byte or an array of bytes where the output of a/multiple 8-Stage Static Shift Register is/are stored and the pins
-		* connected to the shift registers.
+		* the other one accepts the pin attacched to a shift register.
  		* Use of the class is the same in both cases
  		*/
 		Slider(int size, int digitalPin[]);
-		Slider(int size, uint8_t* input, uint8_t latchPin, uint8_t dataPin, uint8_t clockPin);
+		Slider(int size, uint8_t latchPin, uint8_t dataPin, uint8_t clockPin);
 
 		/*
  		* Return if the slider is:
