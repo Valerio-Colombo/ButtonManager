@@ -167,6 +167,6 @@ int Slider::getProgress() {
 	return static_cast<int>(_progress);
 }
 
-int Slider::setHoldThreshold(int value) {
+void Slider::setHoldThreshold(int value) {
 	_holdThreshold = value;
 }

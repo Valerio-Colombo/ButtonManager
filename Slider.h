@@ -31,7 +31,7 @@ class Slider {
 	public:
 		/*
  		* Slider has two constructors:
- 		* one accepting the array containing digital pins attached to the touch sensors,
+ 		* one accepting the array containing digital pins attached to buttons,
 		* the other one accepts the pin attacched to a shift register.
  		* Use of the class is the same in both cases
  		*/
@@ -54,7 +54,7 @@ class Slider {
 		State getState();
 
 		/*
-		* Return curret value of slider if pressed or return last progress value if not pressed
+		* Return current value of slider if pressed or return last progress value if not pressed
 		* If an invalid number of button is pressed the function returns -1
 		*/
 		int getProgress();
@@ -62,7 +62,7 @@ class Slider {
 		/*
 		* Set _holdThresholdValue
 		*/
-		int setHoldThreshold(int value);
+		void setHoldThreshold(int value);
 
 		/*
 		* Update slider status getting data from shift registers
